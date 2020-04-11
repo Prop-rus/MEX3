@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+    {% if form != None %}
+
+    <br><h2>Загрузите свой файл</h2><br>
+    <div>
+        <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+
+            {{ form}}
+            <br>
+            <input type="submit" value="Отправить" />
+        </form>
+    </div>
+
+    {% endif %}
+{% endblock %}
