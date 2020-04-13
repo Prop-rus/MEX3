@@ -24,4 +24,5 @@ urlpatterns = [
     path('', views.Home_view, name = 'home'),
     path('admin/', admin.site.urls),
     path('form/', views.Form_view, name = 'form'),
+    path('sendfile/',views.getFilesFromDisk, name = 'sendfile'),
 ]
