@@ -31,8 +31,8 @@ def Form_view(request):
         files = request.FILES.getlist('file')
         if form.is_valid():
             for n, afile in enumerate(files):
-                handle_uploaded_file(afile,n)
-
+                # handle_uploaded_file(afile,n)
+                pass
         return redirect('sendfile')
 
 
@@ -47,10 +47,10 @@ def Form_view(request):
         }
     )
 
-def handle_uploaded_file(f,n):
-    with open(f'MEX3app/media/data{n}.xlsx', 'wb+') as dest:
-        for chunk in f.chunks():
-            dest.write(chunk)
+# def handle_uploaded_file(f,n):
+#     with open(f'MEX3app/media/data{n}.xlsx', 'wb+') as dest:
+#         for chunk in f.chunks():
+#             dest.write(chunk)
 
 def getFilesFromDisk(response):
     pat ='MEX3app/media/'
