@@ -45,3 +45,95 @@ input[type="checkbox"].input-validation-error {
 
 
 }
+
+.bord {
+    display: flex;
+    height: 50px;
+    background: #AFEEEE; /* Цвет фона */
+    align-items: center;
+    justify-content: center;
+
+    alignment: center;
+
+    border: 3px solid #fff; /* Белая рамка */
+    border-radius: 10px; /* Радиус скругления */
+}
+
+.twoblock {
+    display: flex;
+    margin-left: auto;
+    justify-content: center;
+    /*border: 2px solid #AFEEEE;*/
+
+
+}
+.child {
+    margin-left: 50px;
+
+    border-top: 2px solid #AFEEEE;
+    border-bottom: 2px solid #AFEEEE;
+    margin-right: 50px;
+}
+
+.twoblock_paren {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px 20px;
+    justify-content: center;
+    /*flex-wrap: wrap;*/
+    /*margin-left: auto;*/
+    align-items: center;
+    /*flex-direction: row;*/
+    /*justify-content: center;*/
+    /*!*border: 2px solid #AFEEEE;*!*/
+
+
+}
+.child_parent {
+
+}
+
+.main_list {
+    margin-top: 50px;
+
+    font-size: large;
+    font-weight: bold;
+    list-style-type: square;
+
+}
+
+.main_list_elem {
+    display: inline-flex;
+    margin-right: 30px;
+    justify-content: center;
+    alignment: center;
+    vertical-align: center;
+}
+
+.butt_list_el {
+    margin-left: 150px;
+    align-content: center;
+    vertical-align: top;
+
+}
+
+.text_in_list {
+    vertical-align: center;
+    justify-content: center;
+    margin-top: 8px;
+    width: 700px;
+}
+
+.instruction {
+    display: inline-flex;
+}
+
+.instr_text {
+    width: 700px;
+    text-align: justify;
+
+}
+
+.instr_pic {
+    margin-left: 50px;
+}
