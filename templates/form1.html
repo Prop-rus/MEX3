@@ -1,0 +1,122 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block content %}
+
+
+{#    {% if form != None %}#}
+
+        <br><h2 align="center">Загрузите свои файлы и укажите ячейки для сбора информации</h2><br>
+        <span style="color: red"><h1>Данная функция еще не готова, возращайтесь позже!</h1></span>
+        <div>
+            <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+
+                {#            {{ form.as_p}}#}
+                <p align="center" class="bord">
+                    {{ form.file }}
+                </p>
+                <br>
+                <div class="twoblock_paren">
+                    <div class="child_parent">
+                        <h4 align="center"><b>Укажите адрес ячейки с подписями для будущих строк</b></h4>
+                    </div>
+                    <div class="child_parent">
+                        <h4 align="center"><b> </b></h4>
+                    </div>
+                    <div class="child_parent">
+                        <h4 align="center"><b>Укажите адрес ячейки со значениями</b></h4>
+                    </div>
+                </div>
+                <div class="twoblock">
+                    <div class="child">
+                        <img src="{% static "app/content/Form0_1.png" %}" alt="Example of exl file 0_1" height="150">
+                    </div>
+                    <div class="child">
+                        <div align="center">
+                            {{ form.column_comment.label }}
+                            <br>
+                            {{ form.column_comment }}
+                        </div>
+                        <br>
+
+                        <div align="center">
+                            {{ form.row_comment.label }}
+                            <br>
+                            {{ form.row_comment }}
+                        </div>
+                        <br>
+                    </div>
+
+                    <div class="child">
+                        <div align="center">
+                            {{ form.column_value.label }}
+                            <br>
+                            {{ form.column_value }}
+                        </div>
+                        <br>
+
+                        <div align="center">
+                            {{ form.row_value.label }}
+                            <br>
+                            {{ form.row_value }}
+                        </div>
+                    </div>
+                    <br>
+                    <div class="child">
+                        <img src="{% static "app/content/Form0_2.png" %}" alt="Example of exl file 0_2" height="150">
+                    </div>
+                </div>
+
+                <div align="center">
+                    <br>
+                    <br>
+                    <input type="submit" class="btn btn-primary btn-lg" value="Отправить" disabled/>
+                </div>
+            </form>
+        </div>
+        <br>
+        <hr/>
+        <h2 align="center">Инструкция</h2>
+{#        <div class="instruction">#}
+{#            <div class="instr_text">#}
+{#                <br>#}
+{#                <br>#}
+{#                <br>#}
+{#                <p>#}
+{#                    В данном разделе Вы можете объединить значения из сотни и даже тысячи однотипных excel-файлов в единый реестр#}
+{#                </p>#}
+{#                <p>#}
+{#                    Шаг 1. Загрузите файлы, информацию из которых необходимо объединить. Это могут быть файлы с расширением .xls или .xlsx.#}
+{#                    Также вы можете отправить файлы в одном архиве (.zip, .rar, .7z)#}
+{#                </p>#}
+{#                <p>#}
+{#                    Шаг 2. Выберите название столбца и номер строки ячейки, которая будет использована в качестве подписи значения#}
+{#                    из файла в итоговом реестре, например ФИО сотрудника.#}
+{#                    Кроме данной подписи в итоговом реестре будут указаны имена файлов, откуда было использовано значение#}
+{#                </p>#}
+{#                <p>#}
+{#                    Шаг 3. Выберите название столбца и номер строки ячейки, которая будет использована в качестве источника для значений#}
+{#                    в итоговом реестре#}
+{#                </p>#}
+{#                <p>#}
+{#                    Шаг 4. Нажмите кнопку Отправить. Ожидайте объединения файлов. Итоговый реестр будет скачан автоматически#}
+{#                </p>#}
+{#            </div>#}
+{#            <div class="instr_pic">#}
+{#                <img src="{% static "app/content/Form0_4.png" %}" alt="Resulting image for instruction" height="400">#}
+{#            </div>#}
+{##}
+{#        </div>#}
+        <br>
+        <br>
+        <div align="center">
+            <p>Скачайте пример файлов, загрузите их через форму наверху и увидете результат</p>
+            <a href="{% url 'send_example' form_num=0 %}" class="btn btn-primary btn-sm" disabled>Скачать пример</a>
+        </div>
+{#    {% endif %}#}
+    {#    <div>#}
+    {#    {% for file in files %}#}
+    {#        <a href="MEX3app/media/{{ file }}">Скачать файл</a>#}
+    {#        <br>#}
+    {#    {% endfor %}#}
+    {#    </div>#}
+{% endblock %}
