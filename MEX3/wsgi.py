@@ -1,3 +1,4 @@
+#!/usr/bin/python3.8
 """
 WSGI config for MEX3 project.
 
