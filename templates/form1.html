@@ -3,120 +3,237 @@
 {% block content %}
 
 
-{#    {% if form != None %}#}
+    {% if form != None %}
 
-        <br><h2 align="center">Загрузите свои файлы и укажите ячейки для сбора информации</h2><br>
-        <span style="color: red"><h1>Данная функция еще не готова, возращайтесь позже!</h1></span>
+        <br><h2 align="center">Загрузите реестр и шаблон итоговых файлов, а также укажите ячейки для сбора информации</h2><br>
         <div>
             <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
 
                 {#            {{ form.as_p}}#}
-                <p align="center" class="bord">
-                    {{ form.file }}
-                </p>
-                <br>
-                <div class="twoblock_paren">
-                    <div class="child_parent">
-                        <h4 align="center"><b>Укажите адрес ячейки с подписями для будущих строк</b></h4>
-                    </div>
-                    <div class="child_parent">
-                        <h4 align="center"><b> </b></h4>
-                    </div>
-                    <div class="child_parent">
-                        <h4 align="center"><b>Укажите адрес ячейки со значениями</b></h4>
-                    </div>
+                <div id="sub_bt2">
+                    <h4 align="center"><b>Шаг 1. Загрузите реестр, который необходимо разделить на файлы:</b></h4>
+                    <p align="center" class="bord">
+                        {{ form.file }}
+                    </p>
+                    <h4 align="center"><b>Шаг 2. Загрузите шаблон итоговых файлов:</b></h4>
+                    <p align="center" class="bord">
+                        {{ form.file_to_fill }}
+                    </p>
+
                 </div>
-                <div class="twoblock">
-                    <div class="child">
-                        <img src="{% static "app/content/Form0_1.png" %}" alt="Example of exl file 0_1" height="150">
-                    </div>
-                    <div class="child">
-                        <div align="center">
-                            {{ form.column_comment.label }}
-                            <br>
-                            {{ form.column_comment }}
-                        </div>
-                        <br>
 
-                        <div align="center">
-                            {{ form.row_comment.label }}
-                            <br>
-                            {{ form.row_comment }}
-                        </div>
-                        <br>
-                    </div>
+                <div align="center" id="first_blc">
+                    <h4 align="center"><b>Шаг 3. Укажите столбец с подписями в реестре</b></h4>
 
-                    <div class="child">
-                        <div align="center">
-                            {{ form.column_value.label }}
-                            <br>
-                            {{ form.column_value }}
-                        </div>
-                        <br>
+                    <div align="center" class="twoblock">
+                        <div align="center" class="twoblock_paren">
 
-                        <div align="center">
-                            {{ form.row_value.label }}
-                            <br>
-                            {{ form.row_value }}
+                            <div class="child">
+                                <img src="{% static "app/content/Form1_col1.png" %}" alt="Example of exl file 1_1" height="400">
+                            </div>
+                            <div class="child">
+                                <div align="center">
+                                    {{ form.column_comment_reg.label }}
+                                    <br>
+                                    <br>
+                                    {{ form.column_comment_reg }}
+                                </div>
+
+                            </div>
                         </div>
-                    </div>
-                    <br>
-                    <div class="child">
-                        <img src="{% static "app/content/Form0_2.png" %}" alt="Example of exl file 0_2" height="150">
                     </div>
                 </div>
 
+                <div align="center" id="second_blc" hidden>
+                    <h4 align="center"><b>Шаг 4. Укажите столбец со значениями в реестре</b></h4>
+                    <div class="twoblock">
+                        <div class="twoblock_paren">
+                            <div class="child1">
+                                <img src="{% static "app/content/Form1_col2.png" %}" alt="Example of exl file 1_2" height="350">
+                            </div>
+                            <div class="child1">
+
+                                <div align="center">
+                                    {{ form.column_value_reg.label }}
+                                    <br>
+                                    <br>
+                                    {{ form.column_value_reg }}
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="third_blc" hidden>
+                    <h4 align="center"><b>Шаг 5. Укажите адреса ячеек в шаблоне с подписями и значениями</b></h4>
+
+                    <div class="twoblock">
+                        <div class="twoblock_paren">
+                            <div class="child1">
+                                <img src="{% static "app/content/Form1_2.png" %}" alt="Example of exl file 1_3" height="250">
+                            </div>
+                            <div class="child1">
+                                <div align="center">
+                                    <b>Адрес ячейки шаблона для подписи</b>
+                                    <br>
+                                    <br>
+                                    {{ form.column_comment_tofill.label }}
+                                    <br>
+                                    {{ form.column_comment_tofill }}
+                                    <br>
+                                    <br>
+                                    {{ form.row_comment_tofill.label }}
+                                    <br>
+                                    {{ form.row_comment_tofill }}
+                                    <br>
+                                </div>
+
+                            </div>
+                            <div class="child1">
+
+                                <div align="center">
+                                    <b>Адрес ячейки шаблона для значения</b>
+                                    <br>
+                                    <br>
+                                    {{ form.column_value_tofill.label }}
+                                    <br>
+                                    {{ form.column_value_tofill }}
+                                    <br>
+                                    <br>
+                                    {{ form.row_value_tofill.label }}
+                                    <br>
+                                    {{ form.row_value_tofill }}
+                                    <br>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
                 <div align="center">
                     <br>
                     <br>
-                    <input type="submit" class="btn btn-primary btn-lg" value="Отправить" disabled/>
+                    <div id="wait" hidden>
+                        <img src="{% static "app/content/wait.gif" %}" alt="whaiting gif" height="100">
+                    </div>
+                    <p id="sub_bt" hidden>
+                        <input id='subbt0' type="submit" class="btn btn-primary btn-lg" value="Отправить"/>
+                    </p>
+                    <br>
+                    <p id="hlp">
+                    </p>
                 </div>
+
             </form>
+            <div align="center">
+                <button class="btn btn-secondary btn-lg" id="next_btn">Далее</button>
+            </div>
+            <div id="next2" align="center" hidden>
+                <button class="btn btn-secondary btn-lg" id="next_btn2">Далее</button>
+            </div>
+            <div id="back_btn" align="center" hidden>
+
+                <button class="btn btn-secondary btn-sm" id="back">Назад</button>
+            </div>
+            <div id="back_btn2" align="center" hidden>
+
+                <button class="btn btn-secondary btn-sm" id="back2">Назад</button>
+            </div>
         </div>
         <br>
         <hr/>
         <h2 align="center">Инструкция</h2>
-{#        <div class="instruction">#}
-{#            <div class="instr_text">#}
-{#                <br>#}
-{#                <br>#}
-{#                <br>#}
-{#                <p>#}
-{#                    В данном разделе Вы можете объединить значения из сотни и даже тысячи однотипных excel-файлов в единый реестр#}
-{#                </p>#}
-{#                <p>#}
-{#                    Шаг 1. Загрузите файлы, информацию из которых необходимо объединить. Это могут быть файлы с расширением .xls или .xlsx.#}
-{#                    Также вы можете отправить файлы в одном архиве (.zip, .rar, .7z)#}
-{#                </p>#}
-{#                <p>#}
-{#                    Шаг 2. Выберите название столбца и номер строки ячейки, которая будет использована в качестве подписи значения#}
-{#                    из файла в итоговом реестре, например ФИО сотрудника.#}
-{#                    Кроме данной подписи в итоговом реестре будут указаны имена файлов, откуда было использовано значение#}
-{#                </p>#}
-{#                <p>#}
-{#                    Шаг 3. Выберите название столбца и номер строки ячейки, которая будет использована в качестве источника для значений#}
-{#                    в итоговом реестре#}
-{#                </p>#}
-{#                <p>#}
-{#                    Шаг 4. Нажмите кнопку Отправить. Ожидайте объединения файлов. Итоговый реестр будет скачан автоматически#}
-{#                </p>#}
-{#            </div>#}
-{#            <div class="instr_pic">#}
-{#                <img src="{% static "app/content/Form0_4.png" %}" alt="Resulting image for instruction" height="400">#}
-{#            </div>#}
-{##}
-{#        </div>#}
+        <div class="instruction">
+            <div class="instr_text">
+
+                <p>
+                    В данном разделе Вы можете загрузить реестр и разбить его на файлы по шаблону
+                </p>
+                <p>
+                    Шаг 1. Загрузите реестр, который необходимо разбить.
+                    Это могут быть файлы с расширением .xls, .xlsx., .zip, .rar или .7z
+                </p>
+                <p>
+                    Шаг 2. Загрузите шаблон, который будет использован при разделении реестра.
+                    Значения из реестра будут по одному вставляться во вновь созданные файлы по указанному шаблону
+                </p>
+                <p>
+                    Шаг 3. Выберите номер столбца с подписями в реестре. Они будут переноситься вместе со значениями в файлы
+                </p>
+                <p>
+                    Шаг 4. Выберите номер столбца со значениями в реестре.
+                </p>
+                <p>
+                    Шаг 5. Выберите адреса ячеек, куда будут переноситься подписи и значения в итоговых файлах по Вашему шаблону
+                </p>
+                <p>
+                    Шаг 6. Нажмите кнопку Отправить, дождитесь загрузки и обработки файлов.
+                    Итоговые файлы будут скачаны автоматически в архиве
+                </p>
+            </div>
+            <div class="instr_pic">
+                <img src="{% static "app/content/Form1_4.png" %}" alt="Resulting image for instruction1" height="300">
+            </div>
+
+        </div>
         <br>
         <br>
         <div align="center">
             <p>Скачайте пример файлов, загрузите их через форму наверху и увидете результат</p>
-            <a href="{% url 'send_example' form_num=0 %}" class="btn btn-primary btn-sm" disabled>Скачать пример</a>
+            <div id="sub_bt3">
+                <a href="{% url 'send_example' form_num=1 %}" class="btn btn-primary btn-sm">Скачать пример</a>
+            </div>
         </div>
-{#    {% endif %}#}
-    {#    <div>#}
-    {#    {% for file in files %}#}
-    {#        <a href="MEX3app/media/{{ file }}">Скачать файл</a>#}
-    {#        <br>#}
-    {#    {% endfor %}#}
-    {#    </div>#}
+    {% endif %}
+    <script>
+        function next_click() {
+            $("#second_blc").show('slow');
+            $("#first_blc").hide('fast');
+            $("#next_btn").hide();
+            $("#next2").show();
+            {#$("#sub_bt").show('fast');#}
+            $("#back_btn").show('fast');
+        }
+
+        $('#next_btn').click(next_click);
+
+        function next_click2() {
+            $("#first_blc").hide('fast');
+            $("#second_blc").hide('fast');
+            $("#third_blc").show('slow');
+            {#$("#next_btn").hide();#}
+            $("#back_btn").hide();
+            $("#next2").hide();
+            $("#sub_bt").show('fast');
+            $("#back_btn2").show('fast');
+        }
+
+        $('#next_btn2').click(next_click2);
+
+        function back_click() {
+            $("#second_blc").hide('fast');
+            $("#first_blc").show('slow');
+            $("#back_btn").hide();
+            $("#next_btn").show('fast');
+            $("#next2").hide('fast');
+            {#$("#sub_bt").hide();#}
+        }
+
+        $('#back').click(back_click)
+
+        function back_click2() {
+            $("#third_blc").hide('fast');
+            $("#second_blc").show('slow');
+            $("#back_btn2").hide();
+            $("#back_btn").show();
+            $("#next2").show('fast');
+            $("#sub_bt").hide();
+        }
+
+        $('#back2').click(back_click2);
+
+
+    </script>
 {% endblock %}

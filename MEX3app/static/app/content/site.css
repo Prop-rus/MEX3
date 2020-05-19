@@ -63,12 +63,21 @@ input[type="checkbox"].input-validation-error {
     display: flex;
     margin-left: auto;
     justify-content: center;
+    align-items: center;
     /*border: 2px solid #AFEEEE;*/
 
 
 }
 .child {
     margin-left: 50px;
+    align-self: center;
+    border-top: 2px solid #AFEEEE;
+    border-bottom: 2px solid #AFEEEE;
+    margin-right: 50px;
+}
+
+.child1 {
+    margin-left: 10px;
 
     border-top: 2px solid #AFEEEE;
     border-bottom: 2px solid #AFEEEE;
@@ -90,7 +99,7 @@ input[type="checkbox"].input-validation-error {
 
 }
 .child_parent {
-
+    text-align: center;
 }
 
 .main_list {

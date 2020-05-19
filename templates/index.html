@@ -9,65 +9,54 @@
     </div>
 
     <div class="row">
-        <div >
-            <h2>Выбери вариант обработки Excel-файла, который тебе необходим:</h2>
-            <p>
-                Можешь совершить операции сложения, вычитания, деления и умножения строк и/или столбцов  среди большого количества файлов-исходдников и записать
-                результат в один файл
-            </p>
-            <ul class="main_list">
-                <li>
-                    <div class="main_list_elem">
-                        <div class="text_in_list">
-                            Перенести значения из нескольких файлов в один реестр
-                        </div>
-                        <div class="butt_list_el">
-
-                            <a href="{% url 'form' %}" class="btn btn-primary btn-lg">Перейти</a>
-                        </div>
+    <div>
+        <h2>Выбери вариант обработки Excel-файла, который тебе необходим:</h2>
+        <p>
+            Можешь совершить операции сложения, вычитания, деления и умножения строк и/или столбцов среди большого количества файлов-исходдников и записать
+            результат в один файл
+        </p>
+        <ul class="main_list">
+            <li>
+                <div class="main_list_elem">
+                    <div class="text_in_list">
+                        Перенести значения из нескольких файлов в один реестр
                     </div>
+                    <div class="butt_list_el">
 
-                </li>
-                <br>
-                <li>
-                    <div class="main_list_elem">
-                        <div class="text_in_list">
-                            Создать множество файлов из единого реестра
-                        </div>
-                        <div class="butt_list_el">
-
-                            <a href="{% url 'form1' %}" class="btn btn-primary btn-lg">Перейти</a>
-                        </div>
+                        <a href="{% url 'form0' %}" class="btn btn-primary btn-lg">Перейти</a>
                     </div>
+                </div>
 
-                </li>
-                <br>
-                <li>
-                    <div class="main_list_elem">
-                        <div class="text_in_list">
-                            Перенести значения из столбцов разных файлов и разместить их рядом
-                        </div>
-                        <div class="butt_list_el">
-
-                            <a href="{% url 'form2' %}" class="btn btn-primary btn-lg">Перейти</a>
-                        </div>
+            </li>
+            <br>
+            <li>
+                <div class="main_list_elem">
+                    <div class="text_in_list">
+                        Создать множество файлов из единого реестра
                     </div>
-                </li>
-                <br>
-                <li>
-                    <div class="main_list_elem">
-                        <div class="text_in_list">
-                            Произвести математические операции со значениями из разных файлов
-                        </div>
-                        <div class="butt_list_el">
+                    <div class="butt_list_el">
 
-                            <a href="{% url 'form3' %}" class="btn btn-primary btn-lg">Перейти</a>
-                        </div>
+                        <a href="{% url 'form1' %}" class="btn btn-primary btn-lg">Перейти</a>
                     </div>
-                </li>
-                <br>
-            </ul>
-        </div>
+                </div>
+
+            </li>
+            <br>
+            <li>
+                <div class="main_list_elem">
+                    <div class="text_in_list">
+                        Перенести значения из столбцов разных файлов и разместить их рядом
+                    </div>
+                    <div class="butt_list_el">
+
+                        <a href="{% url 'form2' %}" class="btn btn-primary btn-lg">Перейти</a>
+                    </div>
+                </div>
+            </li>
+
+            <br>
+        </ul>
+    </div>
 
 
 {% endblock %}

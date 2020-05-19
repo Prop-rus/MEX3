@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }} - Make Excel</title>
 
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'app/content/site.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/site.css' %}"/>
     <script src="{% static 'app/scripts/modernizr-2.6.2.js' %}"></script>
     <script src="{% static 'app/scripts/jquery-1.10.2.js' %}"></script>
 </head>
@@ -21,22 +21,19 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="/" class="navbar-brand"><img src="{% static 'app/content/logoMEX_burned.png' %}" alt="logo" width="60" height="40" /> </a>
+            <a href="/" class="navbar-brand"><img src="{% static 'app/content/logoMEX_burned.png' %}" alt="logo" width="60" height="40"/> </a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="{% url 'home' %}">Главная</a></li>
-{#                <li><a href="{% url 'form' %}">Форма</a></li>#}
-
+                <li><a>|</a></li>
+                <li><a href="{% url 'form0' %}">Файлы в реестр</a></li>
+                <li><a href="{% url 'form1' %}">Реестр в файлы</a></li>
+                <li><a href="{% url 'form2' %}">Файлы в реестр по столбцам</a></li>
+                {#
 
             </ul>
-{#            {% include 'app/loginpartial.html' %}#}
-{#            <ul class="nav navbar-nav navbar-right">#}
-{#                {% if not user.is_authenticated %}#}
-{#                    <li><a href="{% url 'registration' %}">Регистрация</a></li>#}
-{#                {% endif %}#}
-{#            </ul>#}
-
+            {#
         </div>
     </div>
 </div>
@@ -50,11 +47,51 @@
     </footer>
 </div>
 
-
 <script src="{% static 'app/scripts/bootstrap.js' %}"></script>
 <script src="{% static 'app/scripts/respond.js' %}"></script>
 
-{% block scripts %}{% endblock %}
+{% block scripts %}
+    <script type="text/javascript">
+        function b1_click() {
+            $('#hlp').html('<b>Идет обработка файлов. Ожидайте, пока результат не будет скачан автоматически</b>');
+            $('#sub_bt').hide();
+            $('#sub_bt2').hide('slow');
+            $('#sub_bt3').hide('slow');
+            $('#wait').show('fast');
+            $("#back_btn").hide();
+            $("#back_btn2").hide();
+            $("#back_btn2-1").hide();
+
+            function dly() {
+                $.ajax({
+                    type: "GET",
+                    url: "test_ajax",
+                    data: "",
+                    dataType: "text",
+                    cach: false,
+                    success: function (data) {
+                        if (data == 'READY') {
+                            $('#hlp').fadeOut()
+                            $('#sub_bt').show('fast')
+                            $('#sub_bt2').show('fast')
+                            $('#sub_bt3').show('fast')
+                            $('#wait').hide('fast');
+                            $("#back_btn2").show('fast');
+                            $("#back_btn2-1").show('fast');
+                            clearInterval(timer)
+                        }
+                    }
+                });
+            }
+
+            var timer = window.setInterval(dly, 1000);
+        }
+
+        $('#subbt0').click(b1_click)
+
+    </script>
+
+{% endblock %}
 
 </body>
 </html>

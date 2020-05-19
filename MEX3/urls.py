@@ -16,19 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from MEX3app import forms, views
-from django.conf.urls import include
+from django.conf.urls import include, url
 
 admin.autodiscover()
 
 urlpatterns = [
-    path('', views.Home_view, name = 'home'),
+    path('', views.Home_view, name='home'),
     path('admin/', admin.site.urls),
-    path('form/', views.Form_view, name = 'form'),
-    path('form1/', views.Form1_view, name = 'form1'),
-    path('form2/', views.Form2_view, name = 'form2'),
-    path('form3/', views.Form3_view, name = 'form3'),
-    path('sendfile/', views.getResultFilesFromDisk, name ='sendfile'),
-    path('sendexample/<form_num>', views.getExampleFiles,  name ='send_example'),
-
+    path('form0/', views.Form_view, name='form0'),
+    path('form1/', views.Form1_view, name='form1'),
+    path('form2/', views.Form2_view, name='form2'),
+    path('sendfile/<dir_path>', views.getResultFilesFromDisk, name='sendfile'),
+    path('sendexample/<form_num>', views.getExampleFiles, name='send_example'),
+    url(r'^form\d+/test_ajax/', views.test_ajax, name='test_ajax'),
 
 ]
