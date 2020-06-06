@@ -2,7 +2,7 @@ amqp==2.5.2
 asgiref==3.2.7
 billiard==3.6.3.0
 celery==4.4.2
-Django==3.0.5
+Django==3.0.7
 django-background-tasks==1.2.5
 django-compat==1.0.15
 EasyProcess==0.2.10
